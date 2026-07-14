@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>untuk ayang 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FFF6EF;
+    --pink: #FF9EBB;
+    --pink-deep: #FF6F9C;
+    --lilac: #C9B6F0;
+    --mint: #9FE8D8;
+    --ink: #6B4E71;
+    --shadow: rgba(107,78,113,0.18);
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 20%, #FFE0EC 0%, transparent 45%),
+      radial-gradient(circle at 85% 15%, #E6DBFF 0%, transparent 45%),
+      radial-gradient(circle at 50% 90%, #D6F5EC 0%, transparent 50%),
+      var(--cream);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--ink);
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  #heartLayer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:5;
+  }
+
+  .float-heart{
+    position:absolute;
+    bottom:-40px;
+    font-size:22px;
+    animation: floatUp linear forwards;
+    opacity:0.9;
+  }
+
+  @keyframes floatUp{
+    0%{ transform: translateY(0) translateX(0) rotate(0deg); opacity:0.95;}
+    100%{ transform: translateY(-100vh) translateX(var(--drift,20px)) rotate(360deg); opacity:0;}
+  }
+
+  .bg-deco{
+    position:fixed;
+    font-size: 26px;
+    opacity:0.35;
+    animation: drift 8s ease-in-out infinite;
+    z-index:0;
+    user-select:none;
+  }
+  .bg-deco:nth-child(1){ top:8%; left:6%; animation-delay:0s;}
+  .bg-deco:nth-child(2){ top:70%; left:10%; animation-delay:1.5s; font-size:20px;}
+  .bg-deco:nth-child(3){ top:15%; right:8%; animation-delay:.7s;}
+  .bg-deco:nth-child(4){ top:75%; right:12%; animation-delay:2.2s; font-size:30px;}
+  .bg-deco:nth-child(5){ top:45%; left:3%; animation-delay:1s; font-size:18px;}
+  .bg-deco:nth-child(6){ top:40%; right:4%; animation-delay:1.8s; font-size:18px;}
+
+  @keyframes drift{
+    0%,100%{ transform: translateY(0) rotate(-4deg);}
+    50%{ transform: translateY(-14px) rotate(6deg);}
+  }
+
+  main{
+    position:relative;
+    z-index:2;
+    max-width:520px;
+    margin:0 auto;
+    padding: 48px 24px 70px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .eyebrow{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    color: var(--pink-deep);
+    background: #fff;
+    padding:6px 16px;
+    border-radius:999px;
+    box-shadow: 0 4px 14px var(--shadow);
+  }
+
+  h1{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size: clamp(30px, 8vw, 44px);
+    margin: 18px 0 6px;
+    color: var(--pink-deep);
+    text-shadow: 2px 2px 0 #fff;
+  }
+
+  .sub{
+    font-size:15px;
+    color:#8B6B8F;
+    margin-bottom: 30px;
+  }
+
+  /* CAT */
+  #catWrap{
+    position:relative;
+    width: 220px;
+    height: 220px;
+    cursor:pointer;
+    margin-bottom: 6px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #catWrap.bounce{
+    animation: bounce .5s ease;
+  }
+  @keyframes bounce{
+    0%{ transform: scale(1);}
+    30%{ transform: scale(0.9,1.1);}
+    55%{ transform: scale(1.12,0.9);}
+    75%{ transform: scale(0.96,1.04);}
+    100%{ transform: scale(1);}
+  }
+
+  .cat-svg{
+    width:100%;
+    height:100%;
+    animation: idleSway 3.2s ease-in-out infinite;
+    filter: drop-shadow(0 10px 16px var(--shadow));
+  }
+  @keyframes idleSway{
+    0%,100%{ transform: rotate(-2deg);}
+    50%{ transform: rotate(2deg);}
+  }
+
+  .ear{ transform-origin: 50% 100%; animation: earWiggle 2.6s ease-in-out infinite; }
+  .ear.right{ animation-delay: .15s; }
+  @keyframes earWiggle{
+    0%,100%{ transform: rotate(0deg);}
+    50%{ transform: rotate(-8deg);}
+  }
+
+  .eye{ animation: blink 4.5s infinite; transform-origin: center; }
+  .eye.right{ animation-delay: .05s;}
+  @keyframes blink{
+    0%, 92%, 100%{ transform: scaleY(1);}
+    95%{ transform: scaleY(0.1);}
+  }
+
+  .tail{
+    transform-origin: 10% 90%;
+    animation: tailSwish 2.2s ease-in-out infinite;
+  }
+  @keyframes tailSwish{
+    0%,100%{ transform: rotate(0deg);}
+    50%{ transform: rotate(10deg);}
+  }
+
+  .hint{
+    font-size:13px;
+    color:#AD8AB0;
+    margin-bottom: 28px;
+  }
+
+  #bubble{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size: 17px;
+    color: var(--ink);
+    background:#fff;
+    border-radius: 22px;
+    padding: 18px 24px;
+    box-shadow: 0 8px 24px var(--shadow);
+    min-height: 30px;
+    max-width: 380px;
+    margin-bottom: 30px;
+    transition: transform .25s ease, opacity .25s ease;
+    border: 2px dashed #FFD1E1;
+  }
+  #bubble.pop{ animation: pop .35s ease; }
+  @keyframes pop{
+    0%{ transform: scale(0.85); opacity:0;}
+    60%{ transform: scale(1.05); opacity:1;}
+    100%{ transform: scale(1);}
+  }
+
+  button#loveBtn{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    color:#fff;
+    background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+    border:none;
+    padding: 15px 34px;
+    border-radius: 999px;
+    cursor:pointer;
+    box-shadow: 0 8px 0 #E85A88, 0 12px 20px var(--shadow);
+    transition: transform .12s ease;
+  }
+  button#loveBtn:active{
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 #E85A88, 0 6px 14px var(--shadow);
+  }
+
+  .meter-wrap{
+    margin-top: 34px;
+    width: 100%;
+    max-width: 360px;
+  }
+  .meter-label{
+    font-size:12px;
+    font-weight:700;
+    color: var(--ink);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .meter-track{
+    width:100%;
+    height:16px;
+    background:#fff;
+    border-radius:999px;
+    overflow:hidden;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .meter-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background: linear-gradient(90deg, var(--mint), var(--lilac), var(--pink));
+    transition: width .5s ease;
+  }
+
+  footer{
+    margin-top:40px;
+    font-size:12px;
+    color:#C39FC7;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<span class="bg-deco">💗</span>
+<span class="bg-deco">✨</span>
+<span class="bg-deco">🌸</span>
+<span class="bg-deco">💫</span>
+<span class="bg-deco">🐾</span>
+<span class="bg-deco">💗</span>
+
+<div id="heartLayer"></div>
+
+<main>
+  <span class="eyebrow">khusus buat ka pucca</span>
+  <h1>I love everything about you~ 💕</h1>
+  <p class="sub">pencet kucingnya ya, dia mau ngomong sesuatu nyaa 🐱</p>
+
+  <div id="catWrap" onclick="pet()">
+    <svg class="cat-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <ellipse class="tail" cx="165" cy="150" rx="10" ry="45" fill="#F6B8CE" transform="rotate(35 165 150)"/>
+      <ellipse cx="100" cy="130" rx="55" ry="45" fill="#FFD3E3"/>
+      <polygon class="ear" points="55,70 40,25 85,60" fill="#FFD3E3"/>
+      <polygon points="58,65 50,38 72,58" fill="#FF9EBB"/>
+      <polygon class="ear right" points="145,70 160,25 115,60" fill="#FFD3E3"/>
+      <polygon points="142,65 150,38 128,58" fill="#FF9EBB"/>
+      <circle cx="100" cy="95" r="52" fill="#FFE3ED"/>
+      <ellipse class="eye" cx="80" cy="95" rx="6" ry="9" fill="#6B4E71"/>
+      <ellipse class="eye right" cx="120" cy="95" rx="6" ry="9" fill="#6B4E71"/>
+      <ellipse cx="65" cy="112" rx="9" ry="6" fill="#FFB6CE" opacity="0.8"/>
+      <ellipse cx="135" cy="112" rx="9" ry="6" fill="#FFB6CE" opacity="0.8"/>
+      <path d="M92 110 Q100 118 108 110" stroke="#6B4E71" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <polygon points="98,103 102,103 100,110" fill="#FF6F9C"/>
+      <line x1="55" y1="106" x2="20" y2="100" stroke="#D18AA8" stroke-width="2"/>
+      <line x1="55" y1="112" x2="18" y2="115" stroke="#D18AA8" stroke-width="2"/>
+      <line x1="145" y1="106" x2="180" y2="100" stroke="#D18AA8" stroke-width="2"/>
+      <line x1="145" y1="112" x2="182" y2="115" stroke="#D18AA8" stroke-width="2"/>
+    </svg>
+  </div>
+  <p class="hint">psst, coba pencet berkali-kali~</p>
+
+  <div id="bubble">kaa pucaaa🐾 aku sayang kakaaa😽</div>
+
+  <button id="loveBtn" onclick="pet()">Kirim Cinta 💌</button>
+
+  <div class="meter-wrap">
+    <div class="meter-label"><span>Meteran Gemesnya ka pucca</span><span id="pct">0%</span></div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+  </div>
+
+  <footer>dibuat dengan 💗 dan sedikit kode nyaa</footer>
+</main>
+
+<script>
+const messages = [
+  "ka pucaa~ aku kangen kamu 🐾",
+  "kamu itu alasan aku senyum sendiri hari ini 💗",
+  "makasih ya udah jadi ayang paling baik~",
+  "peluk virtual dari aku, terimaa 🤍",
+  "kalau kamu kucing, kamu pasti paling gemes sedunia",
+  "semangat ya hari ini, aku selalu dukung kamu 💫",
+  "jangan lupa minum air putih & senyum terus!",
+  "mau tau rahasia? kamu tuh spesial banget 🌸",
+  "muach! itu kecupan dari kucing digital ini 😽",
+  "sebentar lagi kita ketemu ya, sabar dulu~",
+  "you're doing amazing, ayangku 💕",
+  "kalau capek, istirahat dulu ya. aku nungguin kok."
+];
+
+let level = 0;
+const fill = document.getElementById('meterFill');
+const pct = document.getElementById('pct');
+const bubble = document.getElementById('bubble');
+const catWrap = document.getElementById('catWrap');
+const heartLayer = document.getElementById('heartLayer');
+const heartEmojis = ['💗','💕','💖','✨','🐾'];
+
+function pet(){
+  // pesan random
+  const msg = messages[Math.floor(Math.random()*messages.length)];
+  bubble.textContent = msg;
+  bubble.classList.remove('pop');
+  void bubble.offsetWidth;
+  bubble.classList.add('pop');
+
+  // animasi kucing
+  catWrap.classList.remove('bounce');
+  void catWrap.offsetWidth;
+  catWrap.classList.add('bounce');
+
+  // naikkan meter
+  level = Math.min(100, level + 9);
+  fill.style.width = level + '%';
+  pct.textContent = level + '%';
+  if(level >= 100){
+    bubble.textContent = "meterannya penuh! kamu resmi paling digemesin sejagat 🏆💗";
+    spawnHearts(10);
+  } else {
+    spawnHearts(4);
+  }
+}
+
+function spawnHearts(n){
+  for(let i=0;i<n;i++){
+    setTimeout(()=>{
+      const h = document.createElement('div');
+      h.className = 'float-heart';
+      h.textContent = heartEmojis[Math.floor(Math.random()*heartEmojis.length)];
+      const startX = 40 + Math.random()*60;
+      h.style.left = startX + '%';
+      h.style.setProperty('--drift', (Math.random()*80-40)+'px');
+      h.style.animationDuration = (2.5 + Math.random()*1.8) + 's';
+      heartLayer.appendChild(h);
+      setTimeout(()=> h.remove(), 4500);
+    }, i*90);
+  }
+}
+</script>
+</body>
+</html>
